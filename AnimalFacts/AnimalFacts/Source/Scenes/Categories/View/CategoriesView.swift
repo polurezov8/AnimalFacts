@@ -7,18 +7,48 @@
 
 import SwiftUI
 
-struct CategoriesView<CategoryView: View>: View {
+struct CategoriesView<CategorieView: View, FactsView: View>: View {
   var categories: [CategoryModel.ID]
-  let row: (CategoryModel.ID) -> CategoryView
+  let row: (CategoryModel.ID) -> CategorieView
+  let facts: () -> FactsView
   let onSelect: Command<CategoryModel.ID>
+  @State private var path: [Destination] = .empty
 
   var body: some View {
     NavigationStack {
       ZStack {
         Color.purple
           .ignoresSafeArea()
+        List {
+          ForEach(categories, id: \.self) { id in
+            NavigationStack(path: $path) {
+              Button(
+                action: {
+                  onSelect.perform(id)
+                  path.append(.facts)
+                },
+                label: { row(id) }
+              )
+            }
+            .frame(width: UIScreen.main.bounds.width - 60, height: 100)
+            .navigationDestination(for: Destination.self) {
+              switch $0 {
+              case .facts: facts()
+              }
+            }
+          }
+          .listRowBackground(Color.clear)
+        }
+        .scrollContentBackground(.hidden)
       }
     }
+    .accentColor(.black)
+  }
+}
+
+extension CategoriesView {
+  enum Destination: Hashable {
+    case facts
   }
 }
 
@@ -37,6 +67,8 @@ struct CategoriesView_Previews: PreviewProvider {
           isPremium: true,
           overlay: { nil }
         )
+      }, facts: {
+        FactsConnector()
       },
       onSelect: .nop()
     )

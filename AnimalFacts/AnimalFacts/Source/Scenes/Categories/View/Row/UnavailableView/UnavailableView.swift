@@ -11,6 +11,10 @@ import SwiftUI
 struct UnavailableView: View {
   var body: some View {
     Color.black.opacity(0.4)
+      .overlay(
+        Image(uiImage: Images.comingSoon),
+        alignment: .trailing
+      )
   }
 }
 

@@ -21,31 +21,35 @@ struct CategoryView: View {
         Image(uiImage: image)
           .resizable()
           .aspectRatio(contentMode: .fit)
-          .frame(width: UIScreen.main.bounds.width / 4)
-          .padding([.leading, .bottom, .top], 8)
-          .cornerRadius(4)
+          .padding([.bottom, .top], 5)
+          .padding(.leading, 10)
         VStack(alignment: .leading) {
-          VStack {
+          VStack(alignment: .leading) {
             Text(title)
-              .multilineTextAlignment(.leading)
             Text(subtitle)
-              .multilineTextAlignment(.leading)
+              .lineLimit(2)
+              .foregroundColor(.black.opacity(0.5))
+              .fixedSize(horizontal: false, vertical: true)
           }
-          .scaledToFit()
+          .padding(.top, 10)
+          .padding(.leading, 12)
           Spacer()
           if isPremium {
             HStack {
-              Image(systemName: "lock")
+              Image(uiImage: Images.lock)
               Text("Premium")
+                .foregroundColor(Colors.oceanBlue)
             }
+            .padding([.leading, .bottom], 8)
           }
         }
         Spacer()
       }
       overlay()
     }
-    .cornerRadius(32)
-    .shadow(radius: 8)
+    .cornerRadius(6)
+    .shadow(radius: 4)
+    .frame(width: UIScreen.main.bounds.width - 40, height: 100)
   }
 }
 

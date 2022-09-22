@@ -12,6 +12,7 @@ struct CategoriesConnector: Connector {
     CategoriesView(
       categories: graph.categories.models.map(\.id),
       row: { CategoryConnector(id: $0) },
+      facts: { FactsConnector() },
       onSelect: Command { _ in
         // TODO: Dispatch action
       }

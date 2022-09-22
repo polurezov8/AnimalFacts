@@ -13,8 +13,21 @@ extension AnimalFactsApp {
       state.reduce(action)
     }
 
+    connectNetworkDriver(to: store)
+
     store.dispatch(action: CategoriesAction.Begin())
 
     return store
+  }
+
+  private func connectNetworkDriver(to store: Store) {
+    guard let baseURL = URL(string: "https://drive.google.com/uc") else {
+      return
+    }
+
+    let client = Client(baseURL: baseURL)
+    let networkOperator = NetworkOperator()
+    let networkDriver = NetworkDriver(store: store, client: client, operator: networkOperator)
+    store.subscribe(observer: networkDriver.subscribe(networkOperator))
   }
 }

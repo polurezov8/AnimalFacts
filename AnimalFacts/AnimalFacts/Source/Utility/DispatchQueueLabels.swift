@@ -7,6 +7,7 @@
 
 enum DispatchQueueLabels: String {
   case store
+  case network
 }
 
 extension DispatchQueueLabels {
