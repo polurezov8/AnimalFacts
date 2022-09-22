@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CategoryConnector: Connector {
+  @Environment(\.imageCache) var imageCache
+
   let id: CategoryModel.ID
 
   func map(graph: Graph) -> some View {
@@ -15,7 +17,7 @@ struct CategoryConnector: Connector {
     return CategoryView(
       title: model.title,
       subtitle: model.subtitle,
-      image: Mock.Image.dog, // TODO: Add image loading and caching
+      image: imageCache.image(for: .category(id)),
       isPremium: model.isPremium,
       overlay: {
         model.isAvailable ? nil : UnavailableView()

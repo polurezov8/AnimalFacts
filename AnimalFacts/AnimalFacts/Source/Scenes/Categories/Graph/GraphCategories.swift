@@ -10,6 +10,7 @@ struct GraphCategories {
 
   var requestId: RequestId? { graph.state.categories.requestId }
   var models: [CategoryModel] { graph.state.categories.models }
+  var isLoading: Bool { graph.state.categories.requestId != nil }
 
   func facts(for categoryId: CategoryModel.ID) -> [FactModel]? {
     models.first(where: { $0.id == categoryId })?.content

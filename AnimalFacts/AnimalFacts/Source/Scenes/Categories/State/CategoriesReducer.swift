@@ -12,6 +12,7 @@ extension CategoriesState {
       requestId = .new()
 
     case let action as CategoriesAction.Loaded:
+      requestId = nil
       models = action.models
 
     default:

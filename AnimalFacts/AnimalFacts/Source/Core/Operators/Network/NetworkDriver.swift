@@ -12,7 +12,8 @@ struct NetworkDriver: SideEffectsDriver {
   let client: Client
   let `operator`: Operator
   let targets: [NetworkTarget] = [
-    CategoriesTarget()
+    CategoriesTarget(),
+    ImagesTarget()
   ]
 
   func subscribe(_ component: Operator) -> Observer<AppState> {

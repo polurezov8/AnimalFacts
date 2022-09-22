@@ -52,6 +52,8 @@
 		BE3E583B28DCB91900C7048C /* FactsConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E583A28DCB91900C7048C /* FactsConnector.swift */; };
 		BE3E583E28DCB93500C7048C /* FactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E583D28DCB93500C7048C /* FactView.swift */; };
 		BE3E584028DCB95B00C7048C /* FactConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E583F28DCB95B00C7048C /* FactConnector.swift */; };
+		BE3E584228DCBB0800C7048C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E584128DCBB0800C7048C /* ImageCache.swift */; };
+		BE3E584428DCBBE000C7048C /* ImagesTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E584328DCBBE000C7048C /* ImagesTarget.swift */; };
 		BE526C7B28DC54A900982848 /* AnimalFactsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE526C7A28DC54A900982848 /* AnimalFactsApp.swift */; };
 		BE526C7F28DC54AA00982848 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE526C7E28DC54AA00982848 /* Assets.xcassets */; };
 		BE526C8C28DC54AA00982848 /* AnimalFactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE526C8B28DC54AA00982848 /* AnimalFactsTests.swift */; };
@@ -122,6 +124,8 @@
 		BE3E583A28DCB91900C7048C /* FactsConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsConnector.swift; sourceTree = "<group>"; };
 		BE3E583D28DCB93500C7048C /* FactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactView.swift; sourceTree = "<group>"; };
 		BE3E583F28DCB95B00C7048C /* FactConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactConnector.swift; sourceTree = "<group>"; };
+		BE3E584128DCBB0800C7048C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		BE3E584328DCBBE000C7048C /* ImagesTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesTarget.swift; sourceTree = "<group>"; };
 		BE526C7728DC54A900982848 /* AnimalFacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalFacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE526C7A28DC54A900982848 /* AnimalFactsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFactsApp.swift; sourceTree = "<group>"; };
 		BE526C7E28DC54AA00982848 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 				BE3E581728DC67AD00C7048C /* Mock.swift */,
 				BE3E583328DCAE8C00C7048C /* Images.swift */,
 				BE3E583528DCAF5600C7048C /* Colors.swift */,
+				BE3E584128DCBB0800C7048C /* ImageCache.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -336,11 +341,11 @@
 		BE3E581F28DCAA6600C7048C /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				BE3E583028DCAB3E00C7048C /* Targets */,
 				BE3E582028DCAA8000C7048C /* Client */,
 				BE3E582528DCAABB00C7048C /* NetworkDriver.swift */,
 				BE3E582728DCAAC300C7048C /* NetworkOperator.swift */,
 				BE3E582E28DCAB2C00C7048C /* NetworkTarget.swift */,
+				BE3E583028DCAB3E00C7048C /* Targets */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				BE3E583128DCAB4900C7048C /* CategoriesTarget.swift */,
+				BE3E584328DCBBE000C7048C /* ImagesTarget.swift */,
 			);
 			path = Targets;
 			sourceTree = "<group>";
@@ -621,9 +627,11 @@
 				BE526C7B28DC54A900982848 /* AnimalFactsApp.swift in Sources */,
 				BE3E57F528DC591100C7048C /* Emptyable.swift in Sources */,
 				BE3E581428DC673700C7048C /* CategoryView.swift in Sources */,
+				BE3E584428DCBBE000C7048C /* ImagesTarget.swift in Sources */,
 				BE3E581628DC674200C7048C /* CategoryConnector.swift in Sources */,
 				BE3E583928DCB8CF00C7048C /* FactsView.swift in Sources */,
 				BE3E580428DC662C00C7048C /* Tagged.swift in Sources */,
+				BE3E584228DCBB0800C7048C /* ImageCache.swift in Sources */,
 				BE3E584028DCB95B00C7048C /* FactConnector.swift in Sources */,
 				BE3E581128DC66F800C7048C /* CategoriesView.swift in Sources */,
 				BE3E57F328DC58EF00C7048C /* DispatchQueueLabels.swift in Sources */,

@@ -13,4 +13,6 @@ enum CategoriesAction {
   }
 
   struct LoadFailed: Action {}
+  struct ImageLoaded: Action {}
+  struct ImageLoadFailed: Action {}
 }

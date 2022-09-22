@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CategoriesView<CategorieView: View, FactsView: View>: View {
+  var state: LoadingState
   var categories: [CategoryModel.ID]
   let row: (CategoryModel.ID) -> CategorieView
   let facts: () -> FactsView
@@ -19,27 +20,32 @@ struct CategoriesView<CategorieView: View, FactsView: View>: View {
       ZStack {
         Color.purple
           .ignoresSafeArea()
-        List {
-          ForEach(categories, id: \.self) { id in
-            NavigationStack(path: $path) {
-              Button(
-                action: {
-                  onSelect.perform(id)
-                  path.append(.facts)
-                },
-                label: { row(id) }
-              )
-            }
-            .frame(width: UIScreen.main.bounds.width - 60, height: 100)
-            .navigationDestination(for: Destination.self) {
-              switch $0 {
-              case .facts: facts()
+        switch state {
+        case .loading:
+          ProgressView()
+        case .loaded:
+          List {
+            ForEach(categories, id: \.self) { id in
+              NavigationStack(path: $path) {
+                Button(
+                  action: {
+                    onSelect.perform(id)
+                    path.append(.facts)
+                  },
+                  label: { row(id) }
+                )
+              }
+              .frame(width: UIScreen.main.bounds.width - 60, height: 100)
+              .navigationDestination(for: Destination.self) {
+                switch $0 {
+                case .facts: facts()
+                }
               }
             }
+            .listRowBackground(Color.clear)
           }
-          .listRowBackground(Color.clear)
+          .scrollContentBackground(.hidden)
         }
-        .scrollContentBackground(.hidden)
       }
     }
     .accentColor(.black)
@@ -52,9 +58,18 @@ extension CategoriesView {
   }
 }
 
+extension CategoriesView {
+  enum LoadingState {
+    case loading
+    case loaded
+    // TODO: Handle error case
+  }
+}
+
 struct CategoriesView_Previews: PreviewProvider {
   static var previews: some View {
     CategoriesView(
+      state: .loading,
       categories: [
         CategoryModel.ID(value: UUID()),
         CategoryModel.ID(value: UUID())

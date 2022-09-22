@@ -17,4 +17,8 @@ extension Client {
       ]
     ))
   }
+
+  func getImage(by path: String) -> Request<Data> {
+    request(urlRequest: get(from: .custom(path)))
+  }
 }
