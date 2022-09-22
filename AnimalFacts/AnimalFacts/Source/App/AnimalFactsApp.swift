@@ -11,7 +11,9 @@ import SwiftUI
 struct AnimalFactsApp: App {
   var body: some Scene {
     WindowGroup {
-      ContentView()
+      StoreProvider(store: setupStore()) {
+        CategoriesConnector()
+      }
     }
   }
 }

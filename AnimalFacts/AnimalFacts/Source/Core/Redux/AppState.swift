@@ -7,4 +7,6 @@
 
 import Foundation
 
-struct AppState {}
+struct AppState {
+  var categories = CategoriesState()
+}

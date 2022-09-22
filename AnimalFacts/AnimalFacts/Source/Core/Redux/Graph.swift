@@ -15,4 +15,6 @@ struct Graph {
 
   let state: AppState
   let dispatch: ReduxDispatch
+
+  var categories: GraphCategories { GraphCategories(graph: self) }
 }
