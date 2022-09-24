@@ -14,7 +14,7 @@ struct CategoriesTarget: NetworkTarget {
     var operations: [Operation] = .empty
 
     if let requestId = state.categories.loadRequestId {
-      let request = client.getCategories(id: requestId)
+      let request = client.getCategories()
       let operation = fire(
         uuid: requestId,
         request: request,

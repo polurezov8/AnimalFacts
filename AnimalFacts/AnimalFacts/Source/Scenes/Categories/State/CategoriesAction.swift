@@ -25,7 +25,7 @@ enum CategoriesAction {
 
   struct ImageLoaded: Action {}
   struct ImageLoadFailed: Action {}
-  
+
   struct ShowAd: Action {}
   struct HideAd: Action {}
 }

@@ -1,0 +1,21 @@
+--symlinks ignore
+--swiftversion 5.2.5
+--indent 2
+--ifdef no-indent
+
+# rules
+--enable isEmpty
+--disable wrapMultilineStatementBraces
+--enable preferKeyPath
+--enable sortedSwitchCases
+--enable redundantRawValues
+--self remove
+
+# format options
+--commas inline
+--stripunusedargs closure-only
+--nospaceoperators ..<, ...,
+--maxwidth 120
+--wraparguments preserve
+--wrapparameters preserve
+--wrapcollections before-first

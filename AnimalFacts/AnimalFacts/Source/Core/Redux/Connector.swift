@@ -18,7 +18,7 @@ extension Connector {
   }
 }
 
-fileprivate struct Connected<V: View>: View {
+private struct Connected<V: View>: View {
   @EnvironmentObject var store: EnvironmentStore
 
   let map: (Graph) -> V

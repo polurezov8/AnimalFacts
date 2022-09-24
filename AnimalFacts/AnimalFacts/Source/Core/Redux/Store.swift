@@ -5,11 +5,11 @@
 //  Created by Dmitry Polurezov on 22.09.2022.
 //
 
-import Foundation
 import Dispatch
+import Foundation
 
 class ReduxStore<State> {
-  typealias Reducer = (inout State, Action) -> ()
+  typealias Reducer = (inout State, Action) -> Void
   private let queue = DispatchQueue(label: DispatchQueueLabels.store.label, qos: .userInitiated)
 
   init(initial state: State, reducer: @escaping Reducer) {

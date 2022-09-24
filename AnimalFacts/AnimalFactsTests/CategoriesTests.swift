@@ -5,8 +5,8 @@
 //  Created by Dmitry Polurezov on 24.09.2022.
 //
 
-import XCTest
 @testable import AnimalFacts
+import XCTest
 
 final class CategoriesTests: XCTestCase {
   var categoriesState = CategoriesState()

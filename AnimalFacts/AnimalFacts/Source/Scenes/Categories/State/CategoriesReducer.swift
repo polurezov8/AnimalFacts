@@ -27,8 +27,8 @@ extension CategoriesState {
     case is CategoriesAction.LoadFailed:
       loadRequestId = nil
 
-    case is CategoriesAction.WriteSucceeded,
-      is CategoriesAction.WriteFailed:
+    case is CategoriesAction.WriteFailed,
+         is CategoriesAction.WriteSucceeded:
       writeRequestId = nil
 
     case is CategoriesAction.ShowAd:

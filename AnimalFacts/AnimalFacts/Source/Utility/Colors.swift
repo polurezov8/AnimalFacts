@@ -9,7 +9,7 @@ import SwiftUI
 
 // Should be codegen
 enum Colors {
-  static let oceanBlue: Color = Color(hex: "#083AEB")
+  static let oceanBlue = Color(hex: "#083AEB")
 }
 
 extension Color {
@@ -33,7 +33,7 @@ extension Color {
       .sRGB,
       red: Double(r) / 255,
       green: Double(g) / 255,
-      blue:  Double(b) / 255,
+      blue: Double(b) / 255,
       opacity: Double(a) / 255
     )
   }

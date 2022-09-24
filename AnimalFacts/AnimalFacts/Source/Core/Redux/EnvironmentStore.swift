@@ -10,13 +10,13 @@ import Foundation
 typealias Store = ReduxStore<AppState>
 
 class EnvironmentStore: ObservableObject {
-  @Published private (set) var graph: Graph
+  @Published private(set) var graph: Graph
 
   let store: Store
 
   init(store: Store) {
     self.store = store
-    self.graph = Graph(state: store.state, dispatch: store.dispatch(action:))
+    graph = Graph(state: store.state, dispatch: store.dispatch(action:))
 
     store.subscribe(observer: asObserver)
   }

@@ -38,7 +38,7 @@ extension CategoryModel {
 }
 
 extension CategoryModel {
-  static let mock: CategoryModel = CategoryModel(
+  static let mock = CategoryModel(
     title: Mock.String.title,
     description: Mock.String.subtitle,
     image: .empty,

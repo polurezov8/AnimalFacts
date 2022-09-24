@@ -8,7 +8,7 @@
 import Foundation
 
 extension Client {
-  func getCategories(id: RequestId) -> Request<[CategoryModel]> {
+  func getCategories() -> Request<[CategoryModel]> {
     request(urlRequest: get(
       from: .base,
       with: [

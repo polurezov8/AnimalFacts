@@ -7,14 +7,14 @@
 
 import Foundation
 
-public final class Command<T> {
+final class Command<T> {
   private let id: String
   private let file: StaticString
   private let function: StaticString
   private let line: UInt
   private let closure: (T) -> Void
 
-  public init(
+  init(
     id: String = "com.redux.command",
     file: StaticString = #file,
     function: StaticString = #function,
@@ -28,11 +28,11 @@ public final class Command<T> {
     self.closure = closure
   }
 
-  public func perform(_ value: T) {
+  func perform(_ value: T) {
     closure(value)
   }
 
-  public static func nop(
+  static func nop(
     id: String = "com.redux.command.nop",
     file: StaticString = #file,
     function: StaticString = #function,
@@ -40,32 +40,32 @@ public final class Command<T> {
   ) -> Command {
     Self(id: id, file: file, function: function, line: line) { value in
       let info = """
-                type: \(type(of: value))
-                id: \(id),
-                file: \(file),
-                function: \(function),
-                line: \(line)
-            """
+          type: \(type(of: value))
+          id: \(id),
+          file: \(file),
+          function: \(function),
+          line: \(line)
+      """
       debugPrint("\(info)")
     }
   }
 }
 
-public extension Command where T == Void {
+extension Command where T == Void {
   func perform() {
     closure(())
   }
 }
 
 extension Command {
-  public func then(_ another: Command) -> Command {
+  func then(_ another: Command) -> Command {
     Command { value in
       self.closure(value)
       another.closure(value)
     }
   }
 
-  public func map<U>(_ transform: @escaping (U) -> T) -> Command<U> {
+  func map<U>(_ transform: @escaping (U) -> T) -> Command<U> {
     Command<U> { value in
       self.closure(transform(value))
     }
@@ -73,26 +73,26 @@ extension Command {
 }
 
 extension Command: Hashable {
-  public func hash(into hasher: inout Hasher) {
+  func hash(into hasher: inout Hasher) {
     hasher.combine(ObjectIdentifier(self))
   }
 
-  public static func == (lhs: Command, rhs: Command) -> Bool {
+  static func == (lhs: Command, rhs: Command) -> Bool {
     lhs.id == rhs.id
-    && lhs.function.utf8Start == rhs.function.utf8Start
-    && lhs.line == rhs.line
+      && lhs.function.utf8Start == rhs.function.utf8Start
+      && lhs.line == rhs.line
   }
 }
 
 extension Command: CustomDebugStringConvertible {
-  public var debugDescription: String {
-        """
-        \(String(describing: type(of: self)))(
-            id: \(id),
-            file: \(file),
-            function: \(function),
-            line: \(line)
-        )
-        """
+  var debugDescription: String {
+    """
+    \(String(describing: type(of: self)))(
+        id: \(id),
+        file: \(file),
+        function: \(function),
+        line: \(line)
+    )
+    """
   }
 }

@@ -29,7 +29,7 @@ struct ImagesTarget: NetworkTarget {
               return CategoriesAction.ImageLoadFailed()
             }
 
-            imageCache.store(image, for: .category(category.id) )
+            imageCache.store(image, for: .category(category.id))
             return CategoriesAction.ImageLoaded()
 
           default:

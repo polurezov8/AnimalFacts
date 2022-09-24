@@ -90,7 +90,7 @@ enum CategoriesAlertType: String, Identifiable {
   case paid
   case unavailable
 
-  var id: String { self.rawValue }
+  var id: String { rawValue }
 
   func alert(action: (() -> Void)?) -> Alert {
     switch self {

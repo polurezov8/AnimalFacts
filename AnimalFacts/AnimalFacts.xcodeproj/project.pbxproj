@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE160A0928DF84E00031287F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE160A0828DF84E00031287F /* View+Extension.swift */; };
 		BE3E57D128DC570500C7048C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE3E57D028DC570500C7048C /* Preview Assets.xcassets */; };
 		BE3E57DB28DC579A00C7048C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E57DA28DC579A00C7048C /* AppState.swift */; };
 		BE3E57DD28DC57B000C7048C /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E57DC28DC57B000C7048C /* Observer.swift */; };
@@ -66,15 +67,15 @@
 		BE526C7F28DC54AA00982848 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE526C7E28DC54AA00982848 /* Assets.xcassets */; };
 		BE526C9628DC54AA00982848 /* AnimalFactsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE526C9528DC54AA00982848 /* AnimalFactsUITests.swift */; };
 		BE526C9828DC54AA00982848 /* AnimalFactsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE526C9728DC54AA00982848 /* AnimalFactsUITestsLaunchTests.swift */; };
+		BE7238D328DF7C6C00DEF0AC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BE7238D228DF7C6C00DEF0AC /* Realm */; };
+		BE7238D528DF7C6C00DEF0AC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BE7238D428DF7C6C00DEF0AC /* RealmSwift */; };
+		BE7238D728DF7C7600DEF0AC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BE7238D628DF7C7600DEF0AC /* Realm */; };
+		BE7238D928DF7C7600DEF0AC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BE7238D828DF7C7600DEF0AC /* RealmSwift */; };
 		BEF28A9D28DF3EBC006B5C9D /* StorageDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF28A9B28DF3EBC006B5C9D /* StorageDriver.swift */; };
 		BEF28A9E28DF3EBC006B5C9D /* StorageOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF28A9C28DF3EBC006B5C9D /* StorageOperator.swift */; };
 		BEF28AA028DF3FF3006B5C9D /* StorageFactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF28A9F28DF3FF3006B5C9D /* StorageFactModel.swift */; };
 		BEF28AA228DF40CC006B5C9D /* StorageCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF28AA128DF40CC006B5C9D /* StorageCategoryModel.swift */; };
 		BEF28AA928DF617D006B5C9D /* CategoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF28AA828DF617D006B5C9D /* CategoriesTests.swift */; };
-		BEF28AAC28DF6391006B5C9D /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BEF28AAB28DF6391006B5C9D /* Realm */; };
-		BEF28AAE28DF6391006B5C9D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BEF28AAD28DF6391006B5C9D /* RealmSwift */; };
-		BEF28AB128DF63F7006B5C9D /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BEF28AB028DF63F7006B5C9D /* Realm */; };
-		BEF28AB328DF63F7006B5C9D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BEF28AB228DF63F7006B5C9D /* RealmSwift */; };
 		BEF28AB528DF6E31006B5C9D /* FactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF28AB428DF6E31006B5C9D /* FactsTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE160A0828DF84E00031287F /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		BE3E57D028DC570500C7048C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BE3E57DA28DC579A00C7048C /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		BE3E57DC28DC57B000C7048C /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
@@ -172,8 +174,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEF28AAE28DF6391006B5C9D /* RealmSwift in Frameworks */,
-				BEF28AAC28DF6391006B5C9D /* Realm in Frameworks */,
+				BE7238D528DF7C6C00DEF0AC /* RealmSwift in Frameworks */,
+				BE7238D328DF7C6C00DEF0AC /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,8 +183,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEF28AB328DF63F7006B5C9D /* RealmSwift in Frameworks */,
-				BEF28AB128DF63F7006B5C9D /* Realm in Frameworks */,
+				BE7238D928DF7C7600DEF0AC /* RealmSwift in Frameworks */,
+				BE7238D728DF7C7600DEF0AC /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +198,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE160A0728DF84C50031287F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BE160A0828DF84E00031287F /* View+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		BE3E57CF28DC570500C7048C /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
@@ -520,6 +530,7 @@
 			children = (
 				BE3E57D328DC572100C7048C /* App */,
 				BE3E57D228DC571D00C7048C /* Core */,
+				BE160A0728DF84C50031287F /* Extensions */,
 				BE3E57D428DC573000C7048C /* Scenes */,
 				BE3E57D728DC575900C7048C /* Utility */,
 			);
@@ -558,6 +569,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE526C9B28DC54AA00982848 /* Build configuration list for PBXNativeTarget "AnimalFacts" */;
 			buildPhases = (
+				BEF28AB728DF76B5006B5C9D /* SwiftFormat */,
 				BE526C7328DC54A900982848 /* Sources */,
 				BE526C7428DC54A900982848 /* Frameworks */,
 				BE526C7528DC54A900982848 /* Resources */,
@@ -568,8 +580,8 @@
 			);
 			name = AnimalFacts;
 			packageProductDependencies = (
-				BEF28AAB28DF6391006B5C9D /* Realm */,
-				BEF28AAD28DF6391006B5C9D /* RealmSwift */,
+				BE7238D228DF7C6C00DEF0AC /* Realm */,
+				BE7238D428DF7C6C00DEF0AC /* RealmSwift */,
 			);
 			productName = AnimalFacts;
 			productReference = BE526C7728DC54A900982848 /* AnimalFacts.app */;
@@ -590,8 +602,8 @@
 			);
 			name = AnimalFactsTests;
 			packageProductDependencies = (
-				BEF28AB028DF63F7006B5C9D /* Realm */,
-				BEF28AB228DF63F7006B5C9D /* RealmSwift */,
+				BE7238D628DF7C7600DEF0AC /* Realm */,
+				BE7238D828DF7C7600DEF0AC /* RealmSwift */,
 			);
 			productName = AnimalFactsTests;
 			productReference = BE526C8728DC54AA00982848 /* AnimalFactsTests.xctest */;
@@ -648,7 +660,7 @@
 			);
 			mainGroup = BE526C6E28DC54A900982848;
 			packageReferences = (
-				BEF28AAA28DF6391006B5C9D /* XCRemoteSwiftPackageReference "realm-swift" */,
+				BE7238D128DF7C6C00DEF0AC /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = BE526C7828DC54A900982848 /* Products */;
 			projectDirPath = "";
@@ -687,6 +699,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BEF28AB728DF76B5006B5C9D /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd BuildTools\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\nswift package update\nswift run -c release swiftformat \"$SRCROOT\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BE526C7328DC54A900982848 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -714,6 +748,7 @@
 				BE3E581B28DC681000C7048C /* UnavailableView.swift in Sources */,
 				BE3E583E28DCB93500C7048C /* FactView.swift in Sources */,
 				BE3E583228DCAB4900C7048C /* CategoriesTarget.swift in Sources */,
+				BE160A0928DF84E00031287F /* View+Extension.swift in Sources */,
 				BE3E582B28DCAAEA00C7048C /* SideEffectsDriver.swift in Sources */,
 				BE3E57E328DC57EE00C7048C /* AppReducer.swift in Sources */,
 				BE3E581828DC67AD00C7048C /* Mock.swift in Sources */,
@@ -1086,7 +1121,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BEF28AAA28DF6391006B5C9D /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		BE7238D128DF7C6C00DEF0AC /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift";
 			requirement = {
@@ -1097,24 +1132,24 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BEF28AAB28DF6391006B5C9D /* Realm */ = {
+		BE7238D228DF7C6C00DEF0AC /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BEF28AAA28DF6391006B5C9D /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = BE7238D128DF7C6C00DEF0AC /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = Realm;
 		};
-		BEF28AAD28DF6391006B5C9D /* RealmSwift */ = {
+		BE7238D428DF7C6C00DEF0AC /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BEF28AAA28DF6391006B5C9D /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = BE7238D128DF7C6C00DEF0AC /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
-		BEF28AB028DF63F7006B5C9D /* Realm */ = {
+		BE7238D628DF7C7600DEF0AC /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BEF28AAA28DF6391006B5C9D /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = BE7238D128DF7C6C00DEF0AC /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = Realm;
 		};
-		BEF28AB228DF63F7006B5C9D /* RealmSwift */ = {
+		BE7238D828DF7C7600DEF0AC /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BEF28AAA28DF6391006B5C9D /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = BE7238D128DF7C6C00DEF0AC /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

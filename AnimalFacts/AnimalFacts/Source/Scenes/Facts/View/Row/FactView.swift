@@ -11,7 +11,7 @@ struct FactView: View {
   let image: UIImage
   let factText: String
   let previousAction: Command<Void>?
-  let nextAction: Command<Void>
+  let nextAction: Command<Void>?
 
   var body: some View {
     GeometryReader { geometry in
@@ -27,6 +27,7 @@ struct FactView: View {
             .frame(height: 148)
           Text(factText)
             .padding()
+            .foregroundColor(.black)
             .fixedSize(horizontal: false, vertical: true)
           Spacer()
           HStack {
@@ -36,8 +37,10 @@ struct FactView: View {
               }
             }
             Spacer()
-            Button(action: { nextAction.perform() }) {
-              Image(uiImage: Images.next)
+            if nextAction != nil {
+              Button(action: { nextAction?.perform() }) {
+                Image(uiImage: Images.next)
+              }
             }
           }
         }

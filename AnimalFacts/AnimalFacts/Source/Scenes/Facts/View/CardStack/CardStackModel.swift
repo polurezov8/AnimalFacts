@@ -5,9 +5,9 @@
 //  Created by Dmitry Polurezov on 23.09.2022.
 //
 
+import CoreGraphics
 import Foundation
 import SwiftUI
-import CoreGraphics
 
 class CardStackData<Element: Identifiable>: Identifiable {
   var id: Element.ID { value.id }
@@ -23,6 +23,8 @@ class CardStackModel<Element: Identifiable>: ObservableObject {
   @Published var currentIndex: Double = .zero
   @Published var previousIndex: Double = .zero
   var maxIndex: Int { data.endIndex - 1 }
+  var isFirst: Bool { currentIndex <= .zero }
+  var isLast: Bool { currentIndex >= Double(maxIndex) }
 
   init(_ elements: [Element]) {
     data = elements.map(CardStackData.init)
@@ -47,15 +49,17 @@ class CardStackModel<Element: Identifiable>: ObservableObject {
     }
 
     previousIndex = currentIndex
-    HapticGenerator.light.impact()
+    impactHaptic()
   }
 
   func swipe() {
     swipeTo(currentIndex + 1)
+    impactHaptic()
   }
 
   func unswipe() {
     swipeTo(currentIndex - 1)
+    impactHaptic()
   }
 
   private func swipeTo(_ index: Double) {
@@ -69,5 +73,9 @@ class CardStackModel<Element: Identifiable>: ObservableObject {
 
     currentIndex = index > maxIndex ? maxIndex : index
     previousIndex = currentIndex
+  }
+
+  private func impactHaptic() {
+    HapticGenerator.light.impact()
   }
 }

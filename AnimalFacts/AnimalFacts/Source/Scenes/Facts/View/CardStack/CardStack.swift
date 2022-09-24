@@ -66,7 +66,8 @@ struct CardStack<Element: Identifiable, Content: View>: View {
   }
 
   private func scale(for index: Int) -> CGFloat {
-    1.0 - (0.1 * abs(currentPosition(for: index)))
+    let scale = 1.0 - (0.1 * abs(currentPosition(for: index)))
+    return scale == .zero ? 0.01 : scale
   }
 
   private func opacity(for index: Int) -> Double {

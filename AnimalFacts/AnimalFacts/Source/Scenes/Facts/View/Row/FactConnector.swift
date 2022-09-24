@@ -12,7 +12,7 @@ struct FactConnector: Connector {
 
   let id: FactModel.ID
   let previousAction: Command<Void>?
-  let nextAction: Command<Void>
+  let nextAction: Command<Void>?
 
   func map(graph: Graph) -> some View {
     guard let model = graph.facts.model(for: id) else { return FactView.empty }
