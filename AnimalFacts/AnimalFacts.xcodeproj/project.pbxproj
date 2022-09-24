@@ -71,6 +71,8 @@
 		BE7238D528DF7C6C00DEF0AC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BE7238D428DF7C6C00DEF0AC /* RealmSwift */; };
 		BE7238D728DF7C7600DEF0AC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BE7238D628DF7C7600DEF0AC /* Realm */; };
 		BE7238D928DF7C7600DEF0AC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BE7238D828DF7C7600DEF0AC /* RealmSwift */; };
+		BECFD5BF28DF9C2000A010BF /* CategoriesAlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECFD5BE28DF9C2000A010BF /* CategoriesAlertType.swift */; };
+		BECFD5C128DF9CA500A010BF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECFD5C028DF9CA500A010BF /* Constants.swift */; };
 		BEF28A9D28DF3EBC006B5C9D /* StorageDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF28A9B28DF3EBC006B5C9D /* StorageDriver.swift */; };
 		BEF28A9E28DF3EBC006B5C9D /* StorageOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF28A9C28DF3EBC006B5C9D /* StorageOperator.swift */; };
 		BEF28AA028DF3FF3006B5C9D /* StorageFactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF28A9F28DF3FF3006B5C9D /* StorageFactModel.swift */; };
@@ -161,6 +163,8 @@
 		BE526C9128DC54AA00982848 /* AnimalFactsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimalFactsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE526C9528DC54AA00982848 /* AnimalFactsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFactsUITests.swift; sourceTree = "<group>"; };
 		BE526C9728DC54AA00982848 /* AnimalFactsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFactsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BECFD5BE28DF9C2000A010BF /* CategoriesAlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesAlertType.swift; sourceTree = "<group>"; };
+		BECFD5C028DF9CA500A010BF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BEF28A9B28DF3EBC006B5C9D /* StorageDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageDriver.swift; sourceTree = "<group>"; };
 		BEF28A9C28DF3EBC006B5C9D /* StorageOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageOperator.swift; sourceTree = "<group>"; };
 		BEF28A9F28DF3FF3006B5C9D /* StorageFactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageFactModel.swift; sourceTree = "<group>"; };
@@ -269,16 +273,17 @@
 		BE3E57D728DC575900C7048C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				BE3E583528DCAF5600C7048C /* Colors.swift */,
+				BECFD5C028DF9CA500A010BF /* Constants.swift */,
 				BE3E57F228DC58EF00C7048C /* DispatchQueueLabels.swift */,
 				BE3E57F428DC591100C7048C /* Emptyable.swift */,
+				BE3E585028DCD46800C7048C /* HapticGenerator.swift */,
+				BE3E584128DCBB0800C7048C /* ImageCache.swift */,
+				BE3E583328DCAE8C00C7048C /* Images.swift */,
+				BE3E581728DC67AD00C7048C /* Mock.swift */,
+				BE3E585D28DCEC6300C7048C /* PerformOnMain.swift */,
 				BE3E580128DC661B00C7048C /* RequestId.swift */,
 				BE3E580328DC662C00C7048C /* Tagged.swift */,
-				BE3E581728DC67AD00C7048C /* Mock.swift */,
-				BE3E583328DCAE8C00C7048C /* Images.swift */,
-				BE3E583528DCAF5600C7048C /* Colors.swift */,
-				BE3E584128DCBB0800C7048C /* ImageCache.swift */,
-				BE3E585028DCD46800C7048C /* HapticGenerator.swift */,
-				BE3E585D28DCEC6300C7048C /* PerformOnMain.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 		BE3E57F728DC65AE00C7048C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BECFD5BE28DF9C2000A010BF /* CategoriesAlertType.swift */,
 				BE3E580E28DC66F200C7048C /* CategoriesConnector.swift */,
 				BE3E581028DC66F800C7048C /* CategoriesView.swift */,
 				BE3E581228DC671E00C7048C /* Row */,
@@ -734,6 +740,8 @@
 				BE3E582428DCAAA200C7048C /* Client+Categories.swift in Sources */,
 				BE3E580028DC65FB00C7048C /* Sorted.swift in Sources */,
 				BE3E582D28DCAB0200C7048C /* SideEffectsOperator.swift in Sources */,
+				BECFD5BF28DF9C2000A010BF /* CategoriesAlertType.swift in Sources */,
+				BECFD5C128DF9CA500A010BF /* Constants.swift in Sources */,
 				BE3E57EB28DC585800C7048C /* Connector.swift in Sources */,
 				BE3E57DF28DC57BD00C7048C /* EnvironmentStore.swift in Sources */,
 				BE3E582228DCAA8800C7048C /* Client.swift in Sources */,

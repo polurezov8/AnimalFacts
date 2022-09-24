@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoriesView<CategorieView: View, FactsView: View>: View {
-  var isLoading: Bool
+  let state: LoadingState
   var isShowingAd: Bool
   let categories: [CategoryModel.ID]
   let row: (CategoryModel.ID) -> CategorieView
@@ -22,40 +22,47 @@ struct CategoriesView<CategorieView: View, FactsView: View>: View {
   @State private var alert: CategoriesAlertType?
 
   var body: some View {
-    NavigationStack {
+    switch state {
+    case .loading:
       ZStack {
-        Color.purple
+        Colors.background
           .ignoresSafeArea()
-        if isLoading {
-          ProgressView()
-        }
-        List {
-          ForEach(categories, id: \.self) { id in
-            NavigationStack(path: $path) {
-              Button(
-                action: { onSelectRow(with: id) },
-                label: { row(id) }
-              )
+        ProgressView()
+      }
+    case .loaded:
+      NavigationStack {
+        ZStack {
+          Colors.background
+            .ignoresSafeArea()
+          List {
+            ForEach(categories, id: \.self) { id in
+              NavigationStack(path: $path) {
+                Button(
+                  action: { onSelectRow(with: id) },
+                  label: { row(id) }
+                )
+              }
+              .frame(width: UIScreen.main.bounds.width - 60, height: 100)
             }
-            .frame(width: UIScreen.main.bounds.width - 60, height: 100)
+            .listRowBackground(Color.clear)
+            .listRowSeparator(.hidden)
           }
-          .listRowBackground(Color.clear)
-        }
-        .scrollContentBackground(.hidden)
-        .navigationDestination(for: Destination.self) {
-          switch $0 {
-          case .facts: facts()
+          .scrollContentBackground(.hidden)
+          .navigationDestination(for: Destination.self) {
+            switch $0 {
+            case .facts: facts()
+            }
           }
-        }
-        if isShowingAd {
-          ProgressView()
+          if isShowingAd {
+            ProgressView()
+          }
         }
       }
-    }
-    .accentColor(.black)
-    .alert(item: $alert) {
-      $0.alert {
-        onPrimaryAction()
+      .accentColor(.black)
+      .alert(item: $alert) {
+        $0.alert {
+          onPrimaryAction()
+        }
       }
     }
   }
@@ -73,7 +80,7 @@ struct CategoriesView<CategorieView: View, FactsView: View>: View {
 
   private func onPrimaryAction() {
     onShowAd.perform()
-    asyncOnMainAfterNow(TimeInterval(2)) {
+    asyncOnMainAfterNow(Constants.adDuration) {
       onHideAd.perform()
       path.append(.facts)
     }
@@ -84,56 +91,63 @@ extension CategoriesView {
   enum Destination: Hashable {
     case facts
   }
-}
 
-enum CategoriesAlertType: String, Identifiable {
-  case paid
-  case unavailable
-
-  var id: String { rawValue }
-
-  func alert(action: (() -> Void)?) -> Alert {
-    switch self {
-    case .paid:
-      return Alert(
-        title: Text("Watch Ad to continue"),
-        primaryButton: .default(Text("Show Ad"), action: action),
-        secondaryButton: .default(Text("Cancel"))
-      )
-
-    case .unavailable:
-      return Alert(
-        title: Text("This section is not yet available"),
-        dismissButton: .default(Text("Ok"))
-      )
-    }
+  enum LoadingState {
+    case loading
+    case loaded
   }
 }
 
 struct CategoriesView_Previews: PreviewProvider {
   static var previews: some View {
-    CategoriesView(
-      isLoading: true,
-      isShowingAd: false,
-      categories: [
-        CategoryModel.ID(value: UUID()),
-        CategoryModel.ID(value: UUID())
-      ],
-      row: { _ in
-        CategoryView(
-          title: Mock.String.title,
-          subtitle: Mock.String.subtitle,
-          image: Mock.Image.dog,
-          isPremium: true,
-          overlay: { nil }
-        )
-      }, facts: {
-        FactsConnector()
-      },
-      alertType: { _ in nil },
-      onSelect: .nop(),
-      onShowAd: .nop(),
-      onHideAd: .nop()
-    )
+    Group {
+      CategoriesView(
+        state: .loading,
+        isShowingAd: false,
+        categories: [
+          CategoryModel.ID(value: UUID()),
+          CategoryModel.ID(value: UUID())
+        ],
+        row: { _ in
+          CategoryView(
+            title: Mock.String.title,
+            subtitle: Mock.String.subtitle,
+            image: Mock.Image.dog,
+            isPremium: true,
+            overlay: { nil }
+          )
+        }, facts: {
+          FactsConnector()
+        },
+        alertType: { _ in nil },
+        onSelect: .nop(),
+        onShowAd: .nop(),
+        onHideAd: .nop()
+      )
+
+      CategoriesView(
+        state: .loaded,
+        isShowingAd: true,
+        categories: [
+          CategoryModel.ID(value: UUID()),
+          CategoryModel.ID(value: UUID())
+        ],
+        row: { _ in
+          CategoryView(
+            title: Mock.String.title,
+            subtitle: Mock.String.subtitle,
+            image: Mock.Image.dog,
+            isPremium: true,
+            overlay: { UnavailableView() }
+          )
+        }, facts: {
+          FactsConnector()
+        },
+        alertType: { _ in nil },
+        onSelect: .nop(),
+        onShowAd: .nop(),
+        onHideAd: .nop()
+      )
+    }
   }
 }

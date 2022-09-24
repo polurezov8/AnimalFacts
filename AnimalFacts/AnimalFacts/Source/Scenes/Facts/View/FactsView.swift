@@ -16,7 +16,7 @@ struct FactsView<Fact: View>: View {
   var body: some View {
     NavigationView {
       ZStack {
-        Color.purple
+        Colors.background
           .ignoresSafeArea()
         CardStack(model: model) { element in
           factView(
@@ -41,11 +41,6 @@ struct FactsView<Fact: View>: View {
     .navigationTitle(navigationTitle)
     .navigationBarTitleTextColor(.black)
   }
-}
-
-enum Constants {
-  static let animationStiffness: Double = 300
-  static let animationDamping: Double = 40
 }
 
 struct FactsView_Previews: PreviewProvider {

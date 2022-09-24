@@ -10,7 +10,7 @@ import SwiftUI
 struct CategoriesConnector: Connector {
   func map(graph: Graph) -> some View {
     CategoriesView(
-      isLoading: graph.categories.isLoading,
+      state: graph.categories.isLoading ? .loading : .loaded,
       isShowingAd: graph.categories.isShowingAd,
       categories: graph.categories.models.map(\.id),
       row: { CategoryConnector(id: $0) },

@@ -10,6 +10,7 @@ import SwiftUI
 // Should be codegen
 enum Colors {
   static let oceanBlue = Color(hex: "#083AEB")
+  static let background = Color.purple
 }
 
 extension Color {
