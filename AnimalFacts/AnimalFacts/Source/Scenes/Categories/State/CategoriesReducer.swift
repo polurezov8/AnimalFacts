@@ -16,6 +16,9 @@ extension CategoriesState {
       models = action.models
       loadRequestId = action.models.isEmpty ? .new() : nil
 
+    case is CategoriesAction.FetchFailed:
+      loadRequestId = .new()
+
     case let action as CategoriesAction.Loaded:
       loadRequestId = nil
       models = action.models

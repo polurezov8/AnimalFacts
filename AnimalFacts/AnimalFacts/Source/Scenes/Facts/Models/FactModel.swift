@@ -21,3 +21,17 @@ extension FactModel {
     case image
   }
 }
+
+extension FactModel {
+  static var mockArray: [FactModel] {
+    var result: [FactModel] = .empty
+    for index in 0..<10 {
+      result.append(FactModel(
+        fact: "\(Mock.String.fact) \(index)",
+        image: "Image \(index)"
+      ))
+    }
+
+    return result
+  }
+}

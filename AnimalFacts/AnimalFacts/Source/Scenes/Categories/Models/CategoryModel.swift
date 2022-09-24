@@ -36,3 +36,30 @@ extension CategoryModel {
     case free
   }
 }
+
+extension CategoryModel {
+  static let mock: CategoryModel = CategoryModel(
+    title: Mock.String.title,
+    description: Mock.String.subtitle,
+    image: .empty,
+    order: .zero,
+    status: .free,
+    content: .empty
+  )
+
+  static var mockArray: [CategoryModel] {
+    var result: [CategoryModel] = .empty
+    for index in 0..<10 {
+      result.append(CategoryModel(
+        title: "\(Mock.String.title) \(index)",
+        description: "\(Mock.String.subtitle) \(index)",
+        image: "image \(index)",
+        order: index,
+        status: index.isMultiple(of: 2) ? .free : .paid,
+        content: .empty
+      ))
+    }
+
+    return result
+  }
+}
