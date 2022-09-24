@@ -13,8 +13,19 @@ enum CategoriesAction {
   }
 
   struct LoadFailed: Action {}
+
+  struct Fetched: Action {
+    let models: [CategoryModel]
+  }
+
+  struct FetchFailed: Action {}
+
+  struct WriteSucceeded: Action {}
+  struct WriteFailed: Action {}
+
   struct ImageLoaded: Action {}
   struct ImageLoadFailed: Action {}
+  
   struct ShowAd: Action {}
   struct HideAd: Action {}
 }

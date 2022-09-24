@@ -13,6 +13,7 @@ extension AnimalFactsApp {
       state.reduce(action)
     }
 
+    connectStorageDriver(to: store)
     connectNetworkDriver(to: store)
 
     store.dispatch(action: CategoriesAction.Begin())
@@ -29,5 +30,11 @@ extension AnimalFactsApp {
     let networkOperator = NetworkOperator()
     let networkDriver = NetworkDriver(store: store, client: client, operator: networkOperator)
     store.subscribe(observer: networkDriver.subscribe(networkOperator))
+  }
+
+  private func connectStorageDriver(to store: Store) {
+    let storageOperator = StorageOperator()
+    let storageDriver = StorageDriver(store: store, operator: storageOperator)
+    store.subscribe(observer: storageDriver.subscribe(storageOperator))
   }
 }

@@ -9,11 +9,24 @@ extension CategoriesState {
   mutating func reduce(_ action: Action) {
     switch action {
     case is CategoriesAction.Begin:
-      requestId = .new()
+      fetchRequestId = .new()
+
+    case let action as CategoriesAction.Fetched:
+      fetchRequestId = nil
+      models = action.models
+      loadRequestId = action.models.isEmpty ? .new() : nil
 
     case let action as CategoriesAction.Loaded:
-      requestId = nil
+      loadRequestId = nil
       models = action.models
+      writeRequestId = action.models.isEmpty ? nil : .new()
+
+    case is CategoriesAction.LoadFailed:
+      loadRequestId = nil
+
+    case is CategoriesAction.WriteSucceeded,
+      is CategoriesAction.WriteFailed:
+      writeRequestId = nil
 
     case is CategoriesAction.ShowAd:
       isShowingAd = true

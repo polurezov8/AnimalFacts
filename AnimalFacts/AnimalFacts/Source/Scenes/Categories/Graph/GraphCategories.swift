@@ -11,9 +11,10 @@ struct GraphCategories {
   let graph: Graph
 
   var categoriesState: CategoriesState { graph.state.categories }
-  var requestId: RequestId? { categoriesState.requestId }
+  var requestId: RequestId? { categoriesState.loadRequestId }
   var models: [CategoryModel] { categoriesState.models }
-  var isLoading: Bool { categoriesState.requestId != nil || categoriesState.isShowingAd }
+  var isLoading: Bool { categoriesState.fetchRequestId != nil || categoriesState.loadRequestId != nil }
+  var isShowingAd: Bool { categoriesState.isShowingAd }
 
   func facts(for categoryId: CategoryModel.ID) -> [FactModel]? {
     models.first(where: { $0.id == categoryId })?.content

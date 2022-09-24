@@ -15,5 +15,5 @@ extension RequestId {
 }
 
 extension UUID {
-  var requestId: RequestId { .init(value: UUID()) }
+  var requestId: RequestId { RequestId(value: UUID()) }
 }

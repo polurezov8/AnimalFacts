@@ -8,6 +8,7 @@
 enum DispatchQueueLabels: String {
   case store
   case network
+  case storage
 }
 
 extension DispatchQueueLabels {

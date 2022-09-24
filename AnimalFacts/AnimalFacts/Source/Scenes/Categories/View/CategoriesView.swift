@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CategoriesView<CategorieView: View, FactsView: View>: View {
   var isLoading: Bool
+  var isShowingAd: Bool
   let categories: [CategoryModel.ID]
   let row: (CategoryModel.ID) -> CategorieView
   let facts: () -> FactsView
@@ -25,6 +26,9 @@ struct CategoriesView<CategorieView: View, FactsView: View>: View {
       ZStack {
         Color.purple
           .ignoresSafeArea()
+        if isLoading {
+          ProgressView()
+        }
         List {
           ForEach(categories, id: \.self) { id in
             NavigationStack(path: $path) {
@@ -43,7 +47,7 @@ struct CategoriesView<CategorieView: View, FactsView: View>: View {
           case .facts: facts()
           }
         }
-        if isLoading {
+        if isShowingAd {
           ProgressView()
         }
       }
@@ -110,6 +114,7 @@ struct CategoriesView_Previews: PreviewProvider {
   static var previews: some View {
     CategoriesView(
       isLoading: true,
+      isShowingAd: false,
       categories: [
         CategoryModel.ID(value: UUID()),
         CategoryModel.ID(value: UUID())

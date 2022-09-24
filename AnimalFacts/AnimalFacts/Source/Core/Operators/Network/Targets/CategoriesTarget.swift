@@ -13,7 +13,7 @@ struct CategoriesTarget: NetworkTarget {
   func map(state: AppState, client: Client, dispatch: @escaping ReduxDispatch) -> [Operation] {
     var operations: [Operation] = .empty
 
-    if let requestId = state.categories.requestId {
+    if let requestId = state.categories.loadRequestId {
       let request = client.getCategories(id: requestId)
       let operation = fire(
         uuid: requestId,

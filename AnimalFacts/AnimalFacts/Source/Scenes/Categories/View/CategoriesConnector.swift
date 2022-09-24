@@ -11,6 +11,7 @@ struct CategoriesConnector: Connector {
   func map(graph: Graph) -> some View {
     CategoriesView(
       isLoading: graph.categories.isLoading,
+      isShowingAd: graph.categories.isShowingAd,
       categories: graph.categories.models.map(\.id),
       row: { CategoryConnector(id: $0) },
       facts: { FactsConnector() },
