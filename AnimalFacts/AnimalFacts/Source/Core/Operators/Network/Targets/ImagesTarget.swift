@@ -39,6 +39,28 @@ struct ImagesTarget: NetworkTarget {
       ))
     }
 
+    state.facts.models.forEach { fact in
+      operations.append(fire(
+        uuid: RequestId(value: fact.id.value),
+        request: client.getImage(by: fact.image),
+        dispatch: dispatch,
+        onComplete: { response in
+          switch response {
+          case let .success(data):
+            guard let image = UIImage(data: data) else {
+              return CategoriesAction.ImageLoadFailed()
+            }
+
+            imageCache.store(image, for: .fact(fact.id))
+            return FactsAction.ImageLoaded()
+
+          default:
+            return FactsAction.ImageLoadFailed()
+          }
+        }
+      ))
+    }
+
     return operations
   }
 }

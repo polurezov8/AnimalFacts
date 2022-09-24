@@ -54,6 +54,14 @@
 		BE3E584028DCB95B00C7048C /* FactConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E583F28DCB95B00C7048C /* FactConnector.swift */; };
 		BE3E584228DCBB0800C7048C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E584128DCBB0800C7048C /* ImageCache.swift */; };
 		BE3E584428DCBBE000C7048C /* ImagesTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E584328DCBBE000C7048C /* ImagesTarget.swift */; };
+		BE3E585128DCD46800C7048C /* HapticGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E585028DCD46800C7048C /* HapticGenerator.swift */; };
+		BE3E585428DCD4D500C7048C /* GraphFacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E585328DCD4D500C7048C /* GraphFacts.swift */; };
+		BE3E585728DCD51A00C7048C /* FactsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E585628DCD51A00C7048C /* FactsState.swift */; };
+		BE3E585928DCD51F00C7048C /* FactsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E585828DCD51F00C7048C /* FactsReducer.swift */; };
+		BE3E585B28DCD52C00C7048C /* FactsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E585A28DCD52C00C7048C /* FactsAction.swift */; };
+		BE3E585E28DCEC6300C7048C /* PerformOnMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E585D28DCEC6300C7048C /* PerformOnMain.swift */; };
+		BE3E587E28DE05C800C7048C /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E587D28DE05C800C7048C /* CardStack.swift */; };
+		BE3E588028DE061A00C7048C /* CardStackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E587F28DE061A00C7048C /* CardStackModel.swift */; };
 		BE526C7B28DC54A900982848 /* AnimalFactsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE526C7A28DC54A900982848 /* AnimalFactsApp.swift */; };
 		BE526C7F28DC54AA00982848 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE526C7E28DC54AA00982848 /* Assets.xcassets */; };
 		BE526C8C28DC54AA00982848 /* AnimalFactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE526C8B28DC54AA00982848 /* AnimalFactsTests.swift */; };
@@ -126,6 +134,15 @@
 		BE3E583F28DCB95B00C7048C /* FactConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactConnector.swift; sourceTree = "<group>"; };
 		BE3E584128DCBB0800C7048C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		BE3E584328DCBBE000C7048C /* ImagesTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesTarget.swift; sourceTree = "<group>"; };
+		BE3E585028DCD46800C7048C /* HapticGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticGenerator.swift; sourceTree = "<group>"; };
+		BE3E585328DCD4D500C7048C /* GraphFacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphFacts.swift; sourceTree = "<group>"; };
+		BE3E585628DCD51A00C7048C /* FactsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsState.swift; sourceTree = "<group>"; };
+		BE3E585828DCD51F00C7048C /* FactsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsReducer.swift; sourceTree = "<group>"; };
+		BE3E585A28DCD52C00C7048C /* FactsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsAction.swift; sourceTree = "<group>"; };
+		BE3E585D28DCEC6300C7048C /* PerformOnMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformOnMain.swift; sourceTree = "<group>"; };
+		BE3E585F28DCF4A300C7048C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BE3E587D28DE05C800C7048C /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
+		BE3E587F28DE061A00C7048C /* CardStackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStackModel.swift; sourceTree = "<group>"; };
 		BE526C7728DC54A900982848 /* AnimalFacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalFacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE526C7A28DC54A900982848 /* AnimalFactsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFactsApp.swift; sourceTree = "<group>"; };
 		BE526C7E28DC54AA00982848 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -213,8 +230,10 @@
 		BE3E57D628DC573F00C7048C /* Facts */ = {
 			isa = PBXGroup;
 			children = (
-				BE3E583728DCB8B900C7048C /* View */,
+				BE3E585228DCD4CE00C7048C /* Graph */,
 				BE3E580928DC667200C7048C /* Models */,
+				BE3E585528DCD50C00C7048C /* State */,
+				BE3E583728DCB8B900C7048C /* View */,
 			);
 			path = Facts;
 			sourceTree = "<group>";
@@ -230,6 +249,8 @@
 				BE3E583328DCAE8C00C7048C /* Images.swift */,
 				BE3E583528DCAF5600C7048C /* Colors.swift */,
 				BE3E584128DCBB0800C7048C /* ImageCache.swift */,
+				BE3E585028DCD46800C7048C /* HapticGenerator.swift */,
+				BE3E585D28DCEC6300C7048C /* PerformOnMain.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -380,6 +401,7 @@
 		BE3E583728DCB8B900C7048C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BE3E587C28DE05B700C7048C /* CardStack */,
 				BE3E583C28DCB92B00C7048C /* Row */,
 				BE3E583828DCB8CF00C7048C /* FactsView.swift */,
 				BE3E583A28DCB91900C7048C /* FactsConnector.swift */,
@@ -394,6 +416,33 @@
 				BE3E583F28DCB95B00C7048C /* FactConnector.swift */,
 			);
 			path = Row;
+			sourceTree = "<group>";
+		};
+		BE3E585228DCD4CE00C7048C /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				BE3E585328DCD4D500C7048C /* GraphFacts.swift */,
+			);
+			path = Graph;
+			sourceTree = "<group>";
+		};
+		BE3E585528DCD50C00C7048C /* State */ = {
+			isa = PBXGroup;
+			children = (
+				BE3E585A28DCD52C00C7048C /* FactsAction.swift */,
+				BE3E585828DCD51F00C7048C /* FactsReducer.swift */,
+				BE3E585628DCD51A00C7048C /* FactsState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		BE3E587C28DE05B700C7048C /* CardStack */ = {
+			isa = PBXGroup;
+			children = (
+				BE3E587D28DE05C800C7048C /* CardStack.swift */,
+				BE3E587F28DE061A00C7048C /* CardStackModel.swift */,
+			);
+			path = CardStack;
 			sourceTree = "<group>";
 		};
 		BE526C6E28DC54A900982848 = {
@@ -419,6 +468,7 @@
 		BE526C7928DC54A900982848 /* AnimalFacts */ = {
 			isa = PBXGroup;
 			children = (
+				BE3E585F28DCF4A300C7048C /* Info.plist */,
 				BE526CA528DC56D100982848 /* Resource */,
 				BE526CA428DC56C900982848 /* Source */,
 			);
@@ -592,6 +642,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE3E585128DCD46800C7048C /* HapticGenerator.swift in Sources */,
 				BE3E57E128DC57D000C7048C /* StoreProvider.swift in Sources */,
 				BE3E580F28DC66F200C7048C /* CategoriesConnector.swift in Sources */,
 				BE3E57EF28DC588A00C7048C /* Action.swift in Sources */,
@@ -602,6 +653,7 @@
 				BE3E57EB28DC585800C7048C /* Connector.swift in Sources */,
 				BE3E57DF28DC57BD00C7048C /* EnvironmentStore.swift in Sources */,
 				BE3E582228DCAA8800C7048C /* Client.swift in Sources */,
+				BE3E587E28DE05C800C7048C /* CardStack.swift in Sources */,
 				BE3E57ED28DC587100C7048C /* Store.swift in Sources */,
 				BE3E582828DCAAC300C7048C /* NetworkOperator.swift in Sources */,
 				BE3E580D28DC66BA00C7048C /* App+Store.swift in Sources */,
@@ -624,9 +676,13 @@
 				BE3E57E728DC582D00C7048C /* Graph.swift in Sources */,
 				BE3E57F128DC58A700C7048C /* DataDriven.swift in Sources */,
 				BE3E57FB28DC65D000C7048C /* CategoriesAction.swift in Sources */,
+				BE3E585E28DCEC6300C7048C /* PerformOnMain.swift in Sources */,
 				BE526C7B28DC54A900982848 /* AnimalFactsApp.swift in Sources */,
 				BE3E57F528DC591100C7048C /* Emptyable.swift in Sources */,
+				BE3E585428DCD4D500C7048C /* GraphFacts.swift in Sources */,
 				BE3E581428DC673700C7048C /* CategoryView.swift in Sources */,
+				BE3E588028DE061A00C7048C /* CardStackModel.swift in Sources */,
+				BE3E585928DCD51F00C7048C /* FactsReducer.swift in Sources */,
 				BE3E584428DCBBE000C7048C /* ImagesTarget.swift in Sources */,
 				BE3E581628DC674200C7048C /* CategoryConnector.swift in Sources */,
 				BE3E583928DCB8CF00C7048C /* FactsView.swift in Sources */,
@@ -635,7 +691,9 @@
 				BE3E584028DCB95B00C7048C /* FactConnector.swift in Sources */,
 				BE3E581128DC66F800C7048C /* CategoriesView.swift in Sources */,
 				BE3E57F328DC58EF00C7048C /* DispatchQueueLabels.swift in Sources */,
+				BE3E585728DCD51A00C7048C /* FactsState.swift in Sources */,
 				BE3E57E528DC580300C7048C /* Command.swift in Sources */,
+				BE3E585B28DCD52C00C7048C /* FactsAction.swift in Sources */,
 				BE3E583428DCAE8C00C7048C /* Images.swift in Sources */,
 				BE3E582628DCAABB00C7048C /* NetworkDriver.swift in Sources */,
 				BE3E57FD28DC65E800C7048C /* CategoriesState.swift in Sources */,
@@ -800,11 +858,12 @@
 				DEVELOPMENT_TEAM = XJ3VD2JLL3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AnimalFacts/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -812,9 +871,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = d.polurezov.AnimalFacts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -829,11 +891,12 @@
 				DEVELOPMENT_TEAM = XJ3VD2JLL3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AnimalFacts/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -841,9 +904,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = d.polurezov.AnimalFacts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

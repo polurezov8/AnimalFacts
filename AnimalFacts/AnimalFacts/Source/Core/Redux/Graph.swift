@@ -17,4 +17,5 @@ struct Graph {
   let dispatch: ReduxDispatch
 
   var categories: GraphCategories { GraphCategories(graph: self) }
+  var facts: GraphFacts { GraphFacts(graph: self) }
 }

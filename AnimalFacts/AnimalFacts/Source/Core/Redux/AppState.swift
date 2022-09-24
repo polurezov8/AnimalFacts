@@ -9,4 +9,5 @@ import Foundation
 
 struct AppState {
   var categories = CategoriesState()
+  var facts = FactsState()
 }

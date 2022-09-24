@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// TODO: Design view
 struct UnavailableView: View {
   var body: some View {
     Color.black.opacity(0.4)

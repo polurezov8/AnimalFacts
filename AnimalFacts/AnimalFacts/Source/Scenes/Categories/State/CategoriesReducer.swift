@@ -15,6 +15,12 @@ extension CategoriesState {
       requestId = nil
       models = action.models
 
+    case is CategoriesAction.ShowAd:
+      isShowingAd = true
+
+    case is CategoriesAction.HideAd:
+      isShowingAd = false
+
     default:
       break
     }

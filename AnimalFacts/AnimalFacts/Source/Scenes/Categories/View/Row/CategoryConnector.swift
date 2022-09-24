@@ -13,15 +13,16 @@ struct CategoryConnector: Connector {
   let id: CategoryModel.ID
 
   func map(graph: Graph) -> some View {
-    let model = graph.categories.categorie(for: id)
+    guard let model = graph.categories.categorie(for: id) else {
+      return CategoryView.empty
+    }
+
     return CategoryView(
       title: model.title,
       subtitle: model.subtitle,
       image: imageCache.image(for: .category(id)),
       isPremium: model.isPremium,
-      overlay: {
-        model.isAvailable ? nil : UnavailableView()
-      }
+      overlay: { model.isAvailable ? nil : UnavailableView() }
     )
   }
 }

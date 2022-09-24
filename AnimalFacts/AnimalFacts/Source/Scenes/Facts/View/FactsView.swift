@@ -9,13 +9,27 @@ import SwiftUI
 
 struct FactsView<Fact: View>: View {
   let navigationTitle: String
-  let factView: (FactModel.ID, Command<Void>, Command<Void>) -> Fact
+  let models: [FactModel]
+  let factView: (FactModel.ID, Command<Void>?, Command<Void>) -> Fact
+  @State var model: CardStackModel<FactModel>
 
   var body: some View {
     NavigationView {
       ZStack {
         Color.purple
           .ignoresSafeArea()
+        CardStack(model: model) { element in
+          factView(
+            element.id,
+            model.currentIndex < 1 ? nil : Command {
+              withAnimation(.interactiveSpring()) { model.unswipe() }
+            },
+            Command {
+              withAnimation(.interactiveSpring()) { model.swipe() }
+            }
+          )
+        }
+        .padding(.top, 48)
       }
     }
     .navigationTitle(navigationTitle)
@@ -26,6 +40,7 @@ struct FactsView_Previews: PreviewProvider {
   static var previews: some View {
     FactsView(
       navigationTitle: Mock.String.title,
+      models: .empty,
       factView: { _, _, _ in
         FactView(
           image: Mock.Image.dog,
@@ -33,7 +48,8 @@ struct FactsView_Previews: PreviewProvider {
           previousAction: .nop(),
           nextAction: .nop()
         )
-      }
+      },
+      model: CardStackModel<FactModel>(.empty)
     )
   }
 }

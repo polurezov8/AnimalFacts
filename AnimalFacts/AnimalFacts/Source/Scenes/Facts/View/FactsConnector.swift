@@ -10,10 +10,12 @@ import SwiftUI
 struct FactsConnector: Connector {
   func map(graph: Graph) -> some View {
     FactsView(
-      navigationTitle: Mock.String.title,
+      navigationTitle: graph.facts.title,
+      models: graph.facts.models,
       factView: { id, previousAction, nextAction in
         FactConnector(id: id, previousAction: previousAction, nextAction: nextAction)
-      }
+      },
+      model: CardStackModel<FactModel>(graph.facts.models)
     )
   }
 }

@@ -9,5 +9,6 @@ import Foundation
 
 struct CategoriesState {
   var requestId: RequestId?
+  var isShowingAd: Bool = false
   @Sorted(by: \.order) var models: [CategoryModel] = .empty
 }

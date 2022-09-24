@@ -11,5 +11,6 @@ extension AppState {
   mutating func reduce(_ action: Action) {
     debugPrint(action)
     categories.reduce(action)
+    facts.reduce(action)
   }
 }

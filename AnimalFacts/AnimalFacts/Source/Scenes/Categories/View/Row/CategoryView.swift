@@ -15,41 +15,47 @@ struct CategoryView: View {
   let overlay: () -> UnavailableView?
 
   var body: some View {
-    ZStack {
-      Color.white
-      HStack {
-        Image(uiImage: image)
-          .resizable()
-          .aspectRatio(contentMode: .fit)
-          .padding([.bottom, .top], 5)
-          .padding(.leading, 10)
-        VStack(alignment: .leading) {
+    GeometryReader { geometry in
+      ZStack {
+        Color.white
+        HStack {
+          Image(uiImage: image)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .padding([.bottom, .top], 5)
+            .padding(.leading, 10)
+            .frame(width: geometry.size.width * 0.3)
           VStack(alignment: .leading) {
-            Text(title)
-            Text(subtitle)
-              .lineLimit(2)
-              .foregroundColor(.black.opacity(0.5))
-              .fixedSize(horizontal: false, vertical: true)
-          }
-          .padding(.top, 10)
-          .padding(.leading, 12)
-          Spacer()
-          if isPremium {
-            HStack {
-              Image(uiImage: Images.lock)
-              Text("Premium")
-                .foregroundColor(Colors.oceanBlue)
+            VStack(alignment: .leading) {
+              Text(title)
+                .lineLimit(1)
+                .font(.system(size: 16))
+              Text(subtitle)
+                .lineLimit(2)
+                .font(.system(size: 12))
+                .foregroundColor(.black.opacity(0.5))
+                .fixedSize(horizontal: false, vertical: true)
             }
-            .padding([.leading, .bottom], 8)
+            .padding(.top, 10)
+            .padding(.leading, 12)
+            Spacer()
+            if isPremium {
+              HStack {
+                Image(uiImage: Images.lock)
+                Text("Premium")
+                  .foregroundColor(Colors.oceanBlue)
+              }
+              .padding([.leading, .bottom], 8)
+            }
           }
+          Spacer()
         }
-        Spacer()
+        overlay()
       }
-      overlay()
     }
-    .cornerRadius(6)
     .shadow(radius: 4)
     .frame(width: UIScreen.main.bounds.width - 40, height: 100)
+    .cornerRadius(6)
   }
 }
 
@@ -65,4 +71,14 @@ struct CategorieView_Previews: PreviewProvider {
       )
     }
   }
+}
+
+extension CategoryView: Emptyable {
+  static var empty = CategoryView(
+    title: Mock.String.title,
+    subtitle: Mock.String.subtitle,
+    image: Mock.Image.dog,
+    isPremium: false,
+    overlay: { nil }
+  )
 }

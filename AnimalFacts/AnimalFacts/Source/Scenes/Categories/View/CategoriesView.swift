@@ -8,47 +8,71 @@
 import SwiftUI
 
 struct CategoriesView<CategorieView: View, FactsView: View>: View {
-  var state: LoadingState
-  var categories: [CategoryModel.ID]
+  var isLoading: Bool
+  let categories: [CategoryModel.ID]
   let row: (CategoryModel.ID) -> CategorieView
   let facts: () -> FactsView
+  let alertType: (CategoryModel.ID) -> CategoriesAlertType?
   let onSelect: Command<CategoryModel.ID>
+  let onShowAd: Command<Void>
+  let onHideAd: Command<Void>
+
   @State private var path: [Destination] = .empty
+  @State private var alert: CategoriesAlertType?
 
   var body: some View {
     NavigationStack {
       ZStack {
         Color.purple
           .ignoresSafeArea()
-        switch state {
-        case .loading:
-          ProgressView()
-        case .loaded:
-          List {
-            ForEach(categories, id: \.self) { id in
-              NavigationStack(path: $path) {
-                Button(
-                  action: {
-                    onSelect.perform(id)
-                    path.append(.facts)
-                  },
-                  label: { row(id) }
-                )
-              }
-              .frame(width: UIScreen.main.bounds.width - 60, height: 100)
-              .navigationDestination(for: Destination.self) {
-                switch $0 {
-                case .facts: facts()
-                }
-              }
+        List {
+          ForEach(categories, id: \.self) { id in
+            NavigationStack(path: $path) {
+              Button(
+                action: { onSelectRow(with: id) },
+                label: { row(id) }
+              )
             }
-            .listRowBackground(Color.clear)
+            .frame(width: UIScreen.main.bounds.width - 60, height: 100)
           }
-          .scrollContentBackground(.hidden)
+          .listRowBackground(Color.clear)
+        }
+        .scrollContentBackground(.hidden)
+        .navigationDestination(for: Destination.self) {
+          switch $0 {
+          case .facts: facts()
+          }
+        }
+        if isLoading {
+          ProgressView()
         }
       }
     }
     .accentColor(.black)
+    .alert(item: $alert) {
+      $0.alert {
+        onPrimaryAction()
+      }
+    }
+  }
+
+  private func onSelectRow(with id: CategoryModel.ID) {
+    guard let alertType = alertType(id) else {
+      onSelect.perform(id)
+      path.append(.facts)
+      return
+    }
+
+    alert = alertType
+    onSelect.perform(id)
+  }
+
+  private func onPrimaryAction() {
+    onShowAd.perform()
+    asyncOnMainAfterNow(TimeInterval(2)) {
+      onHideAd.perform()
+      path.append(.facts)
+    }
   }
 }
 
@@ -58,18 +82,34 @@ extension CategoriesView {
   }
 }
 
-extension CategoriesView {
-  enum LoadingState {
-    case loading
-    case loaded
-    // TODO: Handle error case
+enum CategoriesAlertType: String, Identifiable {
+  case paid
+  case unavailable
+
+  var id: String { self.rawValue }
+
+  func alert(action: (() -> Void)?) -> Alert {
+    switch self {
+    case .paid:
+      return Alert(
+        title: Text("Watch Ad to continue"),
+        primaryButton: .default(Text("Show Ad"), action: action),
+        secondaryButton: .default(Text("Cancel"))
+      )
+
+    case .unavailable:
+      return Alert(
+        title: Text("This section is not yet available"),
+        dismissButton: .default(Text("Ok"))
+      )
+    }
   }
 }
 
 struct CategoriesView_Previews: PreviewProvider {
   static var previews: some View {
     CategoriesView(
-      state: .loading,
+      isLoading: true,
       categories: [
         CategoryModel.ID(value: UUID()),
         CategoryModel.ID(value: UUID())
@@ -85,7 +125,10 @@ struct CategoriesView_Previews: PreviewProvider {
       }, facts: {
         FactsConnector()
       },
-      onSelect: .nop()
+      alertType: { _ in nil },
+      onSelect: .nop(),
+      onShowAd: .nop(),
+      onHideAd: .nop()
     )
   }
 }

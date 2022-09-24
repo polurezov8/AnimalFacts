@@ -11,4 +11,6 @@ import UIKit
 enum Images {
   static let lock = UIImage(named: "lock")!
   static let comingSoon = UIImage(named: "coming_soon")!
+  static let back = UIImage(named: "back")!
+  static let next = UIImage(named: "next")!
 }
