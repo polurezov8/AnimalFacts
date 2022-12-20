@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52A2803F29521A44002883DE /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2803E29521A44002883DE /* Injected.swift */; };
+		52A2804129521A7E002883DE /* InjectionKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A2804029521A7E002883DE /* InjectionKeys.swift */; };
 		BE160A0928DF84E00031287F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE160A0828DF84E00031287F /* View+Extension.swift */; };
 		BE3E57D128DC570500C7048C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE3E57D028DC570500C7048C /* Preview Assets.xcassets */; };
 		BE3E57DB28DC579A00C7048C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E57DA28DC579A00C7048C /* AppState.swift */; };
@@ -99,6 +101,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		52A2803E29521A44002883DE /* Injected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
+		52A2804029521A7E002883DE /* InjectionKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionKeys.swift; sourceTree = "<group>"; };
 		BE160A0828DF84E00031287F /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		BE3E57D028DC570500C7048C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BE3E57DA28DC579A00C7048C /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -356,6 +360,8 @@
 			isa = PBXGroup;
 			children = (
 				BE3E57FF28DC65FB00C7048C /* Sorted.swift */,
+				52A2803E29521A44002883DE /* Injected.swift */,
+				52A2804029521A7E002883DE /* InjectionKeys.swift */,
 			);
 			path = PropertyWrappers;
 			sourceTree = "<group>";
@@ -734,6 +740,7 @@
 			files = (
 				BE3E585128DCD46800C7048C /* HapticGenerator.swift in Sources */,
 				BE3E57E128DC57D000C7048C /* StoreProvider.swift in Sources */,
+				52A2803F29521A44002883DE /* Injected.swift in Sources */,
 				BE3E580F28DC66F200C7048C /* CategoriesConnector.swift in Sources */,
 				BE3E57EF28DC588A00C7048C /* Action.swift in Sources */,
 				BE3E583B28DCB91900C7048C /* FactsConnector.swift in Sources */,
@@ -776,6 +783,7 @@
 				BE3E585428DCD4D500C7048C /* GraphFacts.swift in Sources */,
 				BE3E581428DC673700C7048C /* CategoryView.swift in Sources */,
 				BEF28AA228DF40CC006B5C9D /* StorageCategoryModel.swift in Sources */,
+				52A2804129521A7E002883DE /* InjectionKeys.swift in Sources */,
 				BEF28A9D28DF3EBC006B5C9D /* StorageDriver.swift in Sources */,
 				BE3E588028DE061A00C7048C /* CardStackModel.swift in Sources */,
 				BE3E585928DCD51F00C7048C /* FactsReducer.swift in Sources */,

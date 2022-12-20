@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoryConnector: Connector {
-  @Environment(\.imageCache) var imageCache
+  @Injected(\.imageCache) var imageCache
 
   let id: CategoryModel.ID
 

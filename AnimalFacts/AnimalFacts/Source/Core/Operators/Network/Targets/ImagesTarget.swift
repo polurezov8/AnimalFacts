@@ -12,7 +12,7 @@ import UIKit
 struct ImagesTarget: NetworkTarget {
   typealias Operation = NetworkOperator.Operation
 
-  @Environment(\.imageCache) var imageCache
+  @Injected(\.imageCache) var imageCache
 
   func map(state: AppState, client: Client, dispatch: @escaping ReduxDispatch) -> [Operation] {
     var operations: [Operation] = .empty
