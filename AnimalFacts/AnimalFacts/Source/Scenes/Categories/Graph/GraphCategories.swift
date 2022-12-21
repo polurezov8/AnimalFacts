@@ -33,7 +33,7 @@ struct GraphCategories {
 }
 
 struct GraphCategory {
-  @Environment(\.imageCache) var imageCache
+  @Injected(\.imageCache) var imageCache
 
   let graph: Graph
   let id: CategoryModel.ID

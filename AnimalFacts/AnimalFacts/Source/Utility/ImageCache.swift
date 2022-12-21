@@ -8,18 +8,18 @@
 import Combine
 import SwiftUI
 
-struct ImageCacheKey: EnvironmentKey {
-  static let defaultValue = ImageCache()
+enum ImageCacheTypeID {
+  case category(CategoryModel.ID)
+  case fact(FactModel.ID)
 }
 
-extension EnvironmentValues {
-  var imageCache: ImageCache {
-    get { self[ImageCacheKey.self] }
-    set { self[ImageCacheKey.self] = newValue }
-  }
+protocol ImageCacheProtocol {
+  func store(_ image: UIImage, for id: ImageCacheTypeID)
+  func image(for id: ImageCacheTypeID) -> UIImage
 }
 
-class ImageCache {
+class ImageCache: ImageCacheProtocol {
+  typealias ID = ImageCacheTypeID
   private var categories: [CategoryModel.ID: UIImage] = .empty
   private var facts: [FactModel.ID: UIImage] = .empty
 
@@ -39,12 +39,5 @@ class ImageCache {
     case let .fact(factId):
       return facts[factId] ?? UIImage(named: "pets")!
     }
-  }
-}
-
-extension ImageCache {
-  enum ID {
-    case category(CategoryModel.ID)
-    case fact(FactModel.ID)
   }
 }

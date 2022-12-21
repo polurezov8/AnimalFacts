@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FactConnector: Connector {
-  @Environment(\.imageCache) var imageCache
+  @Injected(\.imageCache) var imageCache
 
   let id: FactModel.ID
   let previousAction: Command<Void>?
